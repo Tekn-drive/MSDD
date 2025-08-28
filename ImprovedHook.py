@@ -35,11 +35,11 @@ class LossHook(HookBase):
             self.total_loss += losses_reduced
             self.total_batches += 1
             self.iter_count += 1
-            average_loss = self.total_loss / self.total_batches
 
         if self.total_batches>0 and comm.is_main_process() and self.iter_count==self.iters_per_epoch:
           epoch = math.ceil(self.trainer.iter / self.iters_per_epoch)
-            
+          average_loss = self.total_loss / self.total_batches
+
           if self.prev_epoch!= epoch:
               self.prev_epoch = epoch
               self.prev_loss = average_loss
