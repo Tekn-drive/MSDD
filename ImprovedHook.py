@@ -1,5 +1,3 @@
-import HookBase
-
 # Please use this hook class with the faster r-cnn and retinanet notebooks only, copy paste this hook class to the hook section in the notebook.
 ''' 
 This hook reports the validation loss inclusive with the warmup phase, however its logic remains the same which is early stopping ONLY after warmup phase. 
