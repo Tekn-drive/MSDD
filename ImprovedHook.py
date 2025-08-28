@@ -53,7 +53,7 @@ class LossHook(HookBase):
               else:
                 self.no_improvements += 1
 
-            if self.no_improvements >= self.patience:
+              if self.no_improvements >= self.patience:
                 checkpointer = DetectionCheckpointer(self.trainer.model, save_dir=self.cfg.OUTPUT_DIR)
                 checkpointer.save("Insert any model .pth file name")
                 raise StopIteration("Early Stopping Trigerred")
