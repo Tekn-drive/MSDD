@@ -1,6 +1,8 @@
 # Mini-mart Shelf Detection Dataset
 MSDD (Mini-mart Shelf Detection Dataset) is a dataset consisting of 300 shelf images containing nearly 14,000 product instances with more than 100 unique SKUs, each with their own class labels. The dataset is further divided into six broad categories which are cookies, biscuits, oil, milk, coffee, and candy. A comparison in performance between RetinaNet with ResNet101, Faster R-CNN, YOLOS based ViT, and YOLOv11 object detection models is conducted with this dataset.
 
+The paper involved with this project is in this link: https://ieeexplore.ieee.org/document/11330140
+
 #### Important: for the hook class that is currently used by RetinaNet and Faster R-CNN (not the improved one) for early stopping, it prints "Val_Loss (Epoch X)" the epoch X here means the non warmup epoch number so suppose the model stopped training at Epoch 7, it doesn't mean it stop at Epoch 7, it stops at the 7th epoch that's not part of the warmup (considering there is 40 training images, batch size of 4, and Detectron2's default warmup iterations which is 1000, therefore the iterations per epoch is 40 images/batch size of 4 = 10 iterations/epoch which means 1000 iterations for warmup/10 iterations per epoch = 100 warmup epochs) So, if the hook said Epoch X it means that the model stopped training at epoch 100 + X (inclusive with warmup epoch). In this case, if X is 7 this means it stopped training at the 107th epoch (inclusive with warmup epoch). We also refer cookies dataset to oreos and biscuits dataset to pocky.
 
 # Model Performance Results
